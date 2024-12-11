@@ -13,6 +13,7 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
     "@typescript-eslint/eslint-plugin": "^8.17.0",
     "@typescript-eslint/parser": "^8.17.0",
@@ -33,6 +34,9 @@
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
-    "http-status": "^2.0.0"
+    "helmet": "^8.0.0",
+    "http-status": "^2.0.0",
+    "xss-clean": "^0.1.4",
+    "zod": "^3.23.8"
   }
 }
