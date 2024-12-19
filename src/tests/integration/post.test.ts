@@ -5,16 +5,21 @@ import prisma from "../../config/prisma.js";
 
 describe("Post Routes:", () => {
   describe("POST /api/v1/posts:", () => {
-    const testPost = {
-      title: "abc",
-      body: "ac",
-      category: "tech",
-    };
+    let testPost: Record<string, unknown>;
+
+    beforeEach(() => {
+      testPost = {
+        title: "abc",
+        body: "ac",
+        category: "tech",
+      };
+    });
 
     test(`Should throw ${httpStatus.BAD_REQUEST} if a required key is missing`, async () => {
+      testPost.title = undefined;
       const res = await request(app)
         .post("/api/v1/posts")
-        .send({ ...testPost, title: undefined })
+        .send()
         .expect(httpStatus.BAD_REQUEST);
 
       expect(res.body.message).toMatch("Validation error");
@@ -22,9 +27,10 @@ describe("Post Routes:", () => {
     });
 
     test(`Should throw ${httpStatus.BAD_REQUEST} if a unknown key is in the payload`, async () => {
+      testPost.abc = "def";
       const res = await request(app)
         .post("/api/v1/posts")
-        .send({ ...testPost, abc: "xyz" })
+        .send(testPost)
         .expect(httpStatus.BAD_REQUEST);
 
       expect(res.body.message).toMatch("Validation error");
