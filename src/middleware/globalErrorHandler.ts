@@ -19,8 +19,9 @@ const globalErrorHandler: ErrorRequestHandler = (error, _req, res, _next) => {
   } else if (error instanceof PrismaClientKnownRequestError) {
     message = error.name;
   } else if (error instanceof ZodError) {
+    statusCode = httpStatus.BAD_REQUEST;
     message = "Validation error";
-    errors = error.errors;
+    errors = error.errors.map((e) => ({ path: e.path, error: e.message }));
   } else if (error instanceof Error) {
     message = error?.message;
   }
