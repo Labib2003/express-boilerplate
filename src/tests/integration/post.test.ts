@@ -19,7 +19,7 @@ describe("Post Routes:", () => {
       testPost.title = undefined;
       const res = await request(app)
         .post("/api/v1/posts")
-        .send()
+        .send(testPost)
         .expect(httpStatus.BAD_REQUEST);
 
       expect(res.body.message).toMatch("Validation error");
@@ -38,9 +38,10 @@ describe("Post Routes:", () => {
     });
 
     test(`Should throw ${httpStatus.BAD_REQUEST} for invalid category`, async () => {
+      testPost.category = "invalid";
       const res = await request(app)
         .post("/api/v1/posts")
-        .send({ ...testPost, category: "unknown" })
+        .send(testPost)
         .expect(httpStatus.BAD_REQUEST);
 
       expect(res.body.message).toMatch("Validation error");
