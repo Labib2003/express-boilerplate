@@ -17,6 +17,9 @@ jobs:
         with:
           node-version: "20"
 
+      - name: Set up environment variables
+        run: echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" >> $GITHUB_ENV
+
       - name: Install dependencies
         run: npm install
 
