@@ -22,7 +22,7 @@ app.use(
 );
 
 app.get("/", (_req, res) => {
-  res.send("Hello World");
+  res.send("Updated Hello World");
 });
 app.use("/api/v1", v1Router);
 
