@@ -80,9 +80,11 @@ A robust and scalable Express.js boilerplate written in TypeScript, designed for
 │   ├── config/          # Configuration (env, CORS, etc.)
 │   ├── routes/          # Express routers (API v1, etc.)
 │   ├── middleware/      # Custom middleware (error handler, etc.)
+│   ├── modules/         # Feature modules (post, etc.)
+│   ├── tests/           # Test files
+│   ├── types/           # TypeScript type declarations
 │   └── utils/           # Utilities (ApiError, etc.)
 ├── prisma/              # Prisma schema and migrations
-├── tests/               # Test files
 ├── package.json
 ├── tsconfig.json
 ├── .eslintrc
