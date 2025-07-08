@@ -1,0 +1,17 @@
+enum Category {
+  tech
+  science
+  politics
+  other
+}
+
+model Post {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+
+  title    String
+  body     String
+  category Category
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+}
