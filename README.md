@@ -73,21 +73,30 @@ A robust and scalable Express.js boilerplate written in TypeScript, designed for
 ## Project Structure
 
 ```
-.
-├── src/
-│   ├── app.ts           # Express app setup and middleware
-│   ├── index.ts         # Server entry point
-│   ├── config/          # Configuration (env, CORS, etc.)
-│   ├── routes/          # Express routers (API v1, etc.)
-│   ├── middleware/      # Custom middleware (error handler, etc.)
-│   └── utils/           # Utilities (ApiError, etc.)
-├── prisma/              # Prisma schema and migrations
-├── tests/               # Test files
-├── package.json
-├── tsconfig.json
-├── .eslintrc
-└── .env.example
+src/
+├── app.ts                  # Express app setup and main middleware
+├── config/                 # Configuration files (CORS, environment, Prisma client)
+├── generated/
+│   └── prisma/             # Auto-generated Prisma client and related assets
+├── index.ts                # Entry point that starts the server
+├── middleware/             # Custom middlewares (error handling, request validation)
+├── modules/
+│   └── post/               # Example feature module (controller, router, service, validator)
+├── routes/                 # Central API route definitions (e.g., v1 API)
+├── tests/
+│   └── integration/        # Integration tests for features and endpoints
+├── types/                  # Custom TypeScript type definitions
+└── utils/                  # Utility/helper functions (ApiError, pagination, etc.)
 ```
+
+- `config/`: App configuration (e.g., database, CORS, environment variables).
+- `generated/prisma/`: Prisma-generated files and client.
+- `middleware/`: Error handler and request validation logic.
+- `modules/post/`: CRUD logic for "post" feature (expandable for other features).
+- `routes/`: API versioned route mapping.
+- `tests/`: Integration tests using Jest & Supertest.
+- `types/`: Custom/global TypeScript definitions.
+- `utils/`: Shared helpers for error handling, async, pagination, and more.
 
 ## API Overview
 
