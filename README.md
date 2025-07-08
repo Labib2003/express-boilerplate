@@ -73,20 +73,16 @@ A robust and scalable Express.js boilerplate written in TypeScript, designed for
 ## Project Structure
 
 ```
-.
-├── src/
-│   ├── app.ts           # Express app setup and middleware
-│   ├── index.ts         # Server entry point
-│   ├── config/          # Configuration (env, CORS, etc.)
-│   ├── routes/          # Express routers (API v1, etc.)
-│   ├── middleware/      # Custom middleware (error handler, etc.)
-│   └── utils/           # Utilities (ApiError, etc.)
-├── prisma/              # Prisma schema and migrations
-├── tests/               # Test files
-├── package.json
-├── tsconfig.json
-├── .eslintrc
-└── .env.example
+src
+├── index.ts      # Main entry file
+├── app.ts        # Express app configuration with middleware
+├── config/       # Configuration files for different packages (e.g. cors, prisma etc.)
+├── middleware/   # Custom middleware (e.g. global error handler, validate request etc.)
+├── modules/      # API modules
+├── routes/       # Versioned routes of the app (e.g. v1, v2 etc.)
+├── tests/        # Unit and integration tests
+├── types/        # Type definitions for modules and packages
+└── utils/        # Utility functions
 ```
 
 ## API Overview
